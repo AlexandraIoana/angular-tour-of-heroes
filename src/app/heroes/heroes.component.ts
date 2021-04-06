@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
 
 // Properties:
 // selector— the component's CSS element selector
@@ -14,10 +14,7 @@ import { Hero } from '../hero';
 // Always export so you can import elsewhere
 export class HeroesComponent implements OnInit {
 
-  hero : Hero = {
-    id: 1,
-    name: 'Windstorm'
-  }
+  heroes = HEROES;
 
   constructor() { }
 
