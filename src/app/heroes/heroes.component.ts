@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
+import { HeroService } from '../hero.service';
 
 // Properties:
 // selector— the component's CSS element selector
@@ -15,18 +15,23 @@ import { HEROES } from '../mock-heroes';
 // Always export so you can import elsewhere
 export class HeroesComponent implements OnInit {
 
-  heroes = HEROES;
+  heroes : Hero[] = [];
   selectedHero?: Hero;
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
   // It's called shortly after creating a component
   // It's a good place to initialise stuff
   ngOnInit(): void {
+    this.getHeroes;
   }
 
   onSelect(hero: Hero): void{
     this.selectedHero = hero;
+  }
+
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
   }
 
 }
